@@ -95,6 +95,12 @@ app.delete('/api/transport/:name',(req,res)=>{
   });
 });
 
+// MongoDB
+const transController = require('./controller/transportation.controller');
+app.route('/mongo')
+    .get(transController.index)
+    .post(transController.add);
+
 // Handle dynamic port
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
