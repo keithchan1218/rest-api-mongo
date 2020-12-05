@@ -16,6 +16,13 @@ Credit:
 - https://medium.com/wesionary-team/create-your-first-rest-api-with-node-js-express-and-mongodb-447fce535385
 - https://developer.mozilla.org/zh-TW/docs/Learn/Server-side/Express_Nodejs/mongoose
 
+## Features
+1. getAll
+2. findOne with id
+3. findDate with createDate
+4. addOne
+5. findOneAndDelete with id
+
 ### Testing
 Use Postman to test the API
 - https://www.postman.com/

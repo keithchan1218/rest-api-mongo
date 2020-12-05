@@ -21,14 +21,10 @@ app.get('/', (req, res) => {
 
 // MongoDB
 const todoController = require('./controller/todoList.controller');
-app.route('/todos')
-  .get(todoController.getAll);
-
-app.get('/todo/:id', (todoController.findOne));
-
-app.route('/todo')
-  .post(todoController.addOne)
-  .delete(todoController.findOneAndDelete);
+app.get('/todos', (todoController.getAll));
+app.get('/todo/id', (todoController.findOne));
+app.get('/todo/date', (todoController.findDate));
+app.route('/todo').post(todoController.addOne).delete(todoController.findOneAndDelete);
 
 // Handle dynamic port
 const port = process.env.PORT || 3000;

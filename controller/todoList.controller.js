@@ -16,9 +16,37 @@ exports.getAll = (req, res) => {
     });
 };
 
+// GET DATE
+exports.findDate = (req, res) => {
+    TodoModel.find({createDate:{$gt:new Date( req.query.createDate )}}).sort({createDate: -1}).exec(function(err, docs){
+        if (err) {
+            console.log(err);
+            res.status(404).send({
+                'status': 'Error',
+                'returnData': err
+            });
+        }
+        else {
+            console.log("Result : ", docs);
+            if (docs) {
+                res.send({
+                    'status': 'Success',
+                    'returnData': docs
+                });
+            } else {
+                res.status(404).send({
+                    'status': 'Failed',
+                    'returnData': 'No records'
+                });
+            }
+
+        }
+    });
+};
+
 // GET ONE
 exports.findOne = (req, res) => {
-    TodoModel.findOne({ '_id': req.params.id }, function (err, docs) {
+    TodoModel.findOne({ '_id': req.query.id }, function (err, docs) {
         if (err) {
             console.log(err);
             res.status(404).send({

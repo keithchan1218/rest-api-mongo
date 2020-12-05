@@ -11,7 +11,7 @@ const TodoSchema = mongoose.Schema({
     },
     deadline: {
         type: Date,
-        required: true
+        required: false
     },
     members: {
         type: String,
@@ -19,7 +19,7 @@ const TodoSchema = mongoose.Schema({
     },
     remarks: {
         type: String,
-        required: true
+        required: false
     },
     createDate: {
         type: Date,
