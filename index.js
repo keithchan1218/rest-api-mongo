@@ -2,10 +2,18 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
+
 // for request body support JSON format (middleware)
 app.use(bodyParser.json());
 
-//connect to mongoose
+// this setting can provide the specific PORT to connect our API
+const cors = require("cors");
+// var corsOptions = {
+//     origin: "http://localhost:8080"
+// };
+app.use(cors());
+
+// connect to mongoose
 const dbPath = 'mongodb://localhost/dbname';
 const options = { useNewUrlParser: true, useUnifiedTopology: true }
 const mongo = mongoose.connect(dbPath, options);

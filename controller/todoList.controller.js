@@ -18,7 +18,8 @@ exports.getAll = (req, res) => {
 
 // GET DATE
 exports.findDate = (req, res) => {
-    TodoModel.find({createDate:{$gt:new Date( req.query.createDate )}}).sort({createDate: -1}).exec(function(err, docs){
+    // between the createDate
+    TodoModel.find({createDate:{$gt:new Date( req.query.createDate ), $lt:new Date((new Date( req.query.createDate )).valueOf() + 86400000)}}).sort({createDate: -1}).exec(function(err, docs){
         if (err) {
             console.log(err);
             res.status(404).send({
